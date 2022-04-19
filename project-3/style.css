@@ -1,17 +1,62 @@
 body {
-    background-color: lime;
+    background-color: black;
+    color: white;
 }
 
-/* #img1 {
-    width: 600px;
-    height: 600px;
-    margin: 20px;
-    transition: all 500ms ease;
+#left-brain {
+    position: fixed;
+    width: 50vw;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#right-brain {
+    position: fixed;
+    width: 50vw;
+    top: 25%;
+    left: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.i-want {
+    width: 15vw;
+    height: 7vh;
+    background-color: grey;
+    z-index: 2;
+}
+
+.i-should {
+    width: 15vw;
+    height: 7vh;
+    background-color: grey;
+    z-index: 2;
+}
+/* #want1 {
+    top: 50%;
+    left: 10%;
+}
+
+#want2 {
+    top: 60%;
+    left: 30%;
+}
+#want3 {
+    top: 70%;
+    left: 50%;
 } */
 
-.bigger {
-    height: 200px;
-    width: 200px;
-    border-radius: 0%;
-    transition: width 2s, height 2s;
+.flow {
+    margin: 0;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    outline: 3px solid black;
+    /* background-color: transparent; */
 }
