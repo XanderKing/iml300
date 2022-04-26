@@ -1,62 +1,694 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
 body {
-    background-color: black;
-    color: white;
+  /* display: flex; */
+  background-color: black;
+  color: white;
+  overflow: hidden;
+}
+
+input {
+  position: fixed;
+  width: 100%;
+  /* padding: 12px 20px; */
+  margin: 20px 0;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  /* background-color: grey; */
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+}
+
+::placeholder {
+  color: rgb(199, 199, 199);
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
 }
 
 #left-brain {
-    position: fixed;
-    width: 50vw;
-    top: 25%;
-    left: 0;
-    pointer-events: none;
-    z-index: 1;
+  position: fixed;
+  width: 50vw;
+  top: 25%;
+  left: 5%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 #right-brain {
-    position: fixed;
-    width: 50vw;
-    top: 25%;
-    left: 50%;
-    pointer-events: none;
-    z-index: 1;
+  position: fixed;
+  width: 50vw;
+  top: 25%;
+  right: 5%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .i-want {
-    width: 15vw;
-    height: 7vh;
-    background-color: grey;
-    z-index: 2;
+  width: 15vw;
+  height: 7vh;
+  background-color: grey;
+  z-index: 10;
+  /* align-items: center;
+    align-content: center; */
+  text-align: left;
+  margin: 8px;
+  padding: 10px;
 }
 
 .i-should {
-    width: 15vw;
-    height: 7vh;
-    background-color: grey;
-    z-index: 2;
+  width: 15vw;
+  height: 7vh;
+  background-color: grey;
+  z-index: 2;
+  text-align: left;
+  margin: 8px;
+  padding: 10px;
 }
-/* #want1 {
-    top: 50%;
-    left: 10%;
-}
-
-#want2 {
-    top: 60%;
-    left: 30%;
-}
-#want3 {
-    top: 70%;
-    left: 50%;
-} */
 
 .flow {
-    margin: 0;
-    width: 600px;
-    height: 600px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    z-index: -1;
-    outline: 3px solid black;
-    /* background-color: transparent; */
+  margin: 0;
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  outline: 3px solid black;
+  /* background-color: transparent; */
+}
+
+.intro-1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  text-align: center;
+  z-index: 10;
+}
+
+.intro-2 {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeIn 2s 3s ease forwards;
+}
+
+#intro-1-p::before,
+#intro-1-p::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#intro-1-p::before {
+  background: black;
+  animation: typewriter 0.75s steps(21) 1s forwards;
+}
+
+#intro-1-p::after {
+  width: 0.1em;
+  height: 1em;
+  transform: translate(0%, 100%);
+  background: white;
+  animation: typewriter 0.75s steps(21) 1s forwards,
+    blink 750ms steps(21) infinite;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+#tag {
+  position: absolute;
+  left: 10%;
+  top: 5%;
+  z-index: 1;
+  /* pointer-events: none; */
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+/* .draggable {
+    width: 15vw;
+    height: 10vh;
+    background-color: grey;
+    z-index: 1000;
+    text-align: left;
+    margin: 8px;
+    padding: 10px;
+    position: fixed;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+    cursor: grab;
+    border-radius: 20px;
+} */
+
+.node {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* left: 50%;
+    top: 80%; */
+  /* transform: translate(-50%,-50%); */
+  cursor: pointer;
+}
+
+.bubble1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* left: 50%;
+    top: 80%; */
+  /* transform: translate(-50%,-50%); */
+  cursor: pointer;
+}
+
+.btn {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.btn2 {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.btn span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate 3s linear infinite;
+  /* background-image: url(asset/neurons.png);
+  overflow: hidden; */
+}
+
+.btn2 span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate 3s linear infinite;
+  background-image: url(asset/neurons.png);
+  overflow: hidden;
+}
+
+.node span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate 4s linear infinite;
+}
+
+.btn:hover span:nth-child(1) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn2:hover span:nth-child(1) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.node:hover span:nth-child(1) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate 6s linear infinite;
+  /* background-image: url(asset/neurons.png);
+  overflow: hidden; */
+}
+
+.btn2 span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate 6s linear infinite;
+  background-image: url(asset/neurons.png);
+  overflow: hidden;
+}
+
+.node span:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate2 7s linear infinite;
+}
+
+.btn:hover span:nth-child(2) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn2:hover span:nth-child(2) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.node:hover span:nth-child(2) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn span:nth-child(3) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate2 10s linear infinite;
+  /* background-image: url(asset/neurons.png);
+  overflow: hidden; */
+}
+
+.btn2 span:nth-child(3) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate2 10s linear infinite;
+  background-image: url(asset/neurons.png);
+  overflow: hidden;
+}
+
+.node span:nth-child(3) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate 12s linear infinite;
+}
+
+.btn:hover span:nth-child(3) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn2:hover span:nth-child(3) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.node:hover span:nth-child(3) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(255,255,255,0.2); */
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate2 4s linear infinite;
+  /* background-image: url(asset/neurons.png);
+  overflow: hidden; */
+}
+
+.btn2 span:nth-child(4) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(255,255,255,0.2); */
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  transition: 0.5s;
+  animation: animate2 4s linear infinite;
+  /* background-image: url(asset/neurons.png);
+    overflow: hidden; */
+}
+
+.btn:hover span:nth-child(4) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn2:hover span:nth-child(4) {
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.content {
+  position: relative;
+  /* padding: 60px 60px; */
+  color: #fff;
+  text-align: center;
+  transition: 0.5s;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.intro {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  transition: 0.5s;
+  z-index: 100;
+  padding: 35px 30px;
+  pointer-events: none;
+}
+
+.content-2 {
+  position: relative;
+  padding: 80px 30px;
+  color: #fff;
+  text-align: center;
+  transition: 0.5s;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.intro-3 {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  transition: 0.5s;
+  z-index: 3000;
+  padding: 95px 60px;
+  /* pointer-events: none; */
+}
+.node-content {
+  position: relative;
+  padding: 40px 60px;
+  color: #fff;
+  text-align: center;
+  transition: 0.5s;
+  z-index: 100;
+  pointer-events: none;
+}
+
+#droppable {
+  position: fixed;
+  /* background-color: rgba(255, 255,255, 0.1); */
+  z-index: 100;
+  width: 25vw;
+  height: 40vh;
+  top: 45%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+.spawn-text {
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  position: fixed;
+  top: 20%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  /* background-color: red; */
+  z-index: 100;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.close-btn {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -5%;
+  right: -5%;
+  /* padding: 5px 5px; */
+  /* margin: 5px 5px; */
+  cursor: pointer;
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  z-index: 2000;
+  /* background-color: grey; */
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: none;
+  color: white;
+  font-weight: 300;
+  font-size: 1rem;
+  animation: animate2 10s linear infinite;
+}
+
+.close-btn:hover {
+  border: none;
+  background: rgba(255, 255, 255, 0.45);
+  /* transition: 0.5s; */
+}
+
+#bubble-1 {
+  top: 10%;
+  left: 5%;
+  width: 110px;
+  height: 110px;
+  /* transform: translate(-50%,-50%); */
+  /* scale: 0.5; */
+}
+
+#bubble-2 {
+  display: none;
+  top: 20%;
+  left: 15%;
+  width: 150px;
+  height: 150px;
+  /* transform: translate(-50%,-50%); */
+  /* scale: 0.5; */
+  align-items: center;
+  align-content: center;
+}
+
+#bubble-3 {
+  display: none;
+  top: 30%;
+  left: 30%;
+  width: 200px;
+  height: 200px;
+  /* transform: translate(-50%,-50%); */
+  /* scale: 0.5; */
+  align-items: center;
+  align-content: center;
+}
+
+#bubble-4 {
+  display: none;
+  top: 55%;
+  left: 65%;
+  width: 500px;
+  height: 500px;
+  /* transform: translate(-50%,-50%); */
+  /* scale: 0.5; */
+  align-items: center;
+  align-content: center;
+}
+
+#about {
+  /* display: none; */
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  /* scale: 0.5; */
+  align-items: center;
+  align-content: center;
+  font-weight: 300;
+  line-height: 1.5rem;
+}
+
+.sidemenu {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 0px;
+  /* background-color: rgb(66, 66, 66); */
+  background-image: url(asset/neurons2.png);
+  z-index: 1;
+  padding-top: 100px;
+  overflow-x: hidden;
+  transition: all 0.5s;
+  /* border: 2px solid rgba(255, 255, 255, 0.5); */
+  /* border-radius: ; */
+}
+
+.sidemenu a {
+  padding: 8px 8px 8px 64px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+}
+
+a {
+  font-weight: 300;
+}
+.sidemenu a:hover {
+  color: white;
+  font-weight: 300;
+}
+
+.sidemenu .menu-close {
+  /* transform: translate(50%,50%); */
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-left: 32px;
+}
+
+.menu-close:hover {
+  font-weight: 300;
+}
+
+#mainbox {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  margin: 15px 25px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: all 0.6s;
+  color: grey;
+}
+
+#mainbox:hover {
+  color: white;
+}
+
+a {
+  color: white;
+}
+a:visited {
+  color: white;
+}
+a:hover {
+  color: white;
+}
+a:active {
+  color: white;
 }
