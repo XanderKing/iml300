@@ -490,6 +490,8 @@ h1 {
 }
 
 .intro-3 {
+width: fit-content;
+height: fit-content;
   position: relative;
   color: #fff;
   text-align: center;
@@ -498,6 +500,18 @@ h1 {
   padding: 95px 60px;
   /* pointer-events: none; */
 }
+
+.intro-4 {
+    width: fit-content;
+    height: fit-content;
+      position: relative;
+      color: #fff;
+      text-align: center;
+      transition: 0.5s;
+      z-index: 3000;
+      /* padding: 95px 60px; */
+      /* pointer-events: none; */
+    }
 .node-content {
   position: relative;
   padding: 40px 60px;
